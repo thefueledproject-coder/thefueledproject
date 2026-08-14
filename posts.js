@@ -14,7 +14,7 @@ async function loadPosts() {
 }
 
 function tagClass(tag) {
-  const map = { RUN: 'tag-run', MOBILITY: 'tag-mobility', FUEL: 'tag-fuel', LIFE: 'tag-life' };
+  const map = { RUN: 'tag-run', LIFT: 'tag-lift', MOBILITY: 'tag-mobility', FUEL: 'tag-fuel', LIFE: 'tag-life' };
   return map[tag] || 'tag-life';
 }
 
