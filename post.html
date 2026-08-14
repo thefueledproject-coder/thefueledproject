@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Fueled Project</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;600;700;800&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .fp-date{font-family:'IBM Plex Mono', monospace;font-size:11px;color:var(--moss);letter-spacing:0.04em;margin-left:12px;}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">THE FUELED<span>·</span>PROJECT</div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="log.html" class="active">Log</a></li>
+    <li><a href="about.html">Coach</a></li>
+    <li><a href="contact.html">Connect</a></li>
+  </ul>
+</nav>
+
+<section class="posts" style="padding-top:20px;max-width:900px;">
+  <article id="post-body">
+    <div class="empty-state">Loading&hellip;</div>
+  </article>
+</section>
+
+<footer>
+  <span>&copy; 2026 The Fueled Project</span>
+  <span>Chicago, running toward it</span>
+</footer>
+
+<script src="posts.js"></script>
+<script>renderPost('post-body');</script>
+</body>
+</html>
