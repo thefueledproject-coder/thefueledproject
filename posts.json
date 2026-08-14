@@ -1,30 +1,63 @@
 [
   {
+    "slug": "18-mile-long-run-6-hours-sleep",
     "title": "What an 18-mile long run looks like on 6 hours of sleep",
     "excerpt": "Pacing, fueling, and the mental math of running before a full workday starts.",
     "tag": "RUN",
     "meta": "WEEK 14",
-    "date": "2026-08-02"
+    "date": "2026-08-02",
+    "content": [
+      "Alarm went off at 4:40. Not because 18 miles needs that much runway, but because the workday doesn't move. Out the door by 5:05, first mile at an easy 9:45 just to let the legs figure out they're awake.",
+      "The plan was simple: first 10 miles at conversational effort, last 8 at goal marathon pace, no watch obsessing on the early miles. Effort over pace until the work actually starts. That's the only way a run like this survives a short night \u2014 chase a number too early and it falls apart by mile 12.",
+      "Fueling: one gel at 40 minutes, then every 35-40 after that. Four gels total, water at each one. Nothing new, nothing exciting \u2014 long run days are not the day to test a new flavor or a new anything. Save the experiments for a Tuesday with lower stakes.",
+      "Miles 11 through 18 at pace felt genuinely fine, which surprised me more than it should have at this point in a block. Legs know what to do even when the brain is running on six hours. That's kind of the whole point of the training \u2014 building a body that performs on the day, not just on paper.",
+      "Cooled down, stretched for four minutes on the kitchen floor because that's what fit, and was at a desk by 7:15. No medal for that part, but it's the actual work of training around a full life \u2014 not the mileage, the logistics around the mileage."
+    ]
   },
   {
+    "slug": "lifting-through-a-marathon-block",
     "title": "Lifting through a marathon block without losing the block",
     "excerpt": "Two sessions a week, kept heavy enough to matter, light enough to still run the next day.",
     "tag": "LIFT",
     "meta": "HYBRID",
-    "date": "2026-08-09"
+    "date": "2026-08-09",
+    "content": [
+      "The mistake most runners make with strength work during a marathon build isn't skipping it \u2014 it's treating it like a second sport instead of support work. Two sessions a week, 35-45 minutes, done. Not five days. Not a bodybuilding split. The running is the priority; the lifting exists to protect it.",
+      "Session one: squat pattern, hip hinge, single-leg work, calves. Session two: upper body push/pull plus core, mostly to keep posture from collapsing at mile 20. Loads stay in the 6-10 rep range at an RPE of 7-8 \u2014 hard enough to matter, never hard enough to wreck the next day's run.",
+      "Placement matters more than people think. Lifting goes the day after a hard run or long run, never the day before. Legs get to actually recover before they're asked to do quality work again, in either direction.",
+      "What gets cut when the week gets tight: volume, not frequency. A rushed 20-minute version of both sessions beats skipping one entirely. Single-leg strength and calf capacity are two of the biggest levers for staying injury-free through a high-mileage block.",
+      "Hybrid isn't about doing everything. It's about doing enough of the right things that the running holds up for the whole block, not just the first six weeks of it."
+    ]
   },
   {
+    "slug": "4-mobility-drills-every-week",
     "title": "The 4 mobility drills I actually do every week",
     "excerpt": "Not the 45-minute routine. The one that actually gets done, every time.",
     "tag": "MOBILITY",
     "meta": "10 MIN",
-    "date": "2026-07-28"
+    "date": "2026-07-28",
+    "content": [
+      "Every impressive-looking mobility routine has the same flaw: it doesn't survive a real week. Ten minutes, four moves, done consistently beats forty-five minutes done twice. Here's the actual four.",
+      "90/90 hip switches \u2014 2 minutes. Covers internal and external rotation in one move, which is the range runners lose first and notice last, usually as hip tightness that never quite explains itself.",
+      "Couch stretch \u2014 90 seconds per side. Hip flexors tighten from sitting at a desk all day and from every mile that follows it. Highest-value stretch for anyone running after 8 hours at a computer.",
+      "Ankle rockers against a wall \u2014 1 minute per side. Dorsiflexion range that directly affects running mechanics and squat depth. Most people find their weaker ankle immediately \u2014 that's useful information, not just a stretch.",
+      "Thoracic rotations, quadruped \u2014 2 minutes. Keeps the upper back from locking up, which matters more for arm drive and breathing mechanics late in a long run than most runners expect.",
+      "None of this is exotic. The value is entirely in the fact that it happens \u2014 on the floor, before bed, no equipment, no excuse good enough to skip it."
+    ]
   },
   {
+    "slug": "fueling-marathon-build-without-overhauling-dinner",
     "title": "Fueling a marathon build without overhauling dinner",
     "excerpt": "Simple swaps that support training without becoming a second job.",
     "tag": "FUEL",
     "meta": "PN1",
-    "date": "2026-07-21"
+    "date": "2026-07-21",
+    "content": [
+      "Nobody training around a full-time job needs a meal plan with six phases and a spreadsheet. What actually moves the needle during a marathon build is smaller and more boring than that.",
+      "Carb timing around the hard days, not overall restriction. On long-run or workout days, an extra serving of rice, potatoes, or oats gets added at the meal before and after \u2014 nothing else on the plate changes. On easy or rest days, dinner stays exactly what it was before training started.",
+      "Protein target stays constant regardless of mileage \u2014 roughly 0.7-1g per pound of bodyweight, spread across the day. This is the one number worth actually tracking; everything else can be intuitive.",
+      "Electrolytes on anything over 75 minutes, not just water. Cramping in week 10 of a block is usually a sodium problem wearing a hydration costume.",
+      "The bigger point: fueling a marathon build isn't about eating differently. It's about eating slightly more, slightly more intentionally, on the days that ask more of you \u2014 and leaving the rest of the week alone."
+    ]
   }
 ]
