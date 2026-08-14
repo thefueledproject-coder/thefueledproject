@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Connect &mdash; The Fueled Project</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;600;700;800&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav style="background:#1B1D16;">
+  <div class="logo" style="color:var(--paper);">THE FUELED<span>·</span>PROJECT</div>
+  <ul class="nav-links">
+    <li><a href="index.html" style="color:rgba(237,238,230,0.75);">Home</a></li>
+    <li><a href="log.html" style="color:rgba(237,238,230,0.75);">Log</a></li>
+    <li><a href="about.html" style="color:rgba(237,238,230,0.75);">Coach</a></li>
+    <li><a href="contact.html" class="active" style="color:var(--ember);border-bottom-color:var(--ember);">Connect</a></li>
+  </ul>
+</nav>
+
+<section class="cta" id="coaching" style="margin-top:0;">
+  <div class="cta-inner">
+    <div>
+      <div class="eyebrow" style="color:var(--ember);"><span></span></div>
+      <h2>Coaching is opening soon.</h2>
+      <p>Run coaching and async check-in programs are in the works. Get on the list to hear first &mdash; no spam, just training notes and an early invite.</p>
+    </div>
+    <form class="cta-form" onsubmit="event.preventDefault(); this.querySelector('.cta-note').textContent='THANKS \u2014 YOU\u2019RE ON THE LIST.';">
+      <input type="email" placeholder="you@email.com" aria-label="Email address" required>
+      <textarea rows="3" placeholder="Anything specific you're training for or working on? (optional)" aria-label="Message"></textarea>
+      <button type="submit" class="btn btn-primary" style="text-align:center;border:none;cursor:pointer;">Notify Me</button>
+      <span class="cta-note">NO SPAM. UNSUBSCRIBE ANYTIME.</span>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <span>&copy; 2026 The Fueled Project</span>
+  <span>Chicago, running toward it</span>
+</footer>
+
+</body>
+</html>

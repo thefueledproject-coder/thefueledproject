@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Log &mdash; The Fueled Project</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;600;700;800&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<section class="page-hero-fuel">
+  <div class="hero-fuel-top">
+    <div class="logo">THE FUELED<span>·</span>PROJECT</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="log.html" class="active">Log</a></li>
+      <li><a href="about.html">Coach</a></li>
+      <li><a href="contact.html">Connect</a></li>
+    </ul>
+  </div>
+  <div class="page-hero-fuel-mid">
+    <div class="eyebrow">THE LOG</div>
+    <h1>Every entry.<br>No highlight reel.</h1>
+    <p class="lead">The actual training log &mdash; the good long runs, the skipped mobility days, the meals that were just fine. Filter by pillar or scroll the whole thing.</p>
+  </div>
+</section>
+
+<section class="posts" style="padding-top:56px;">
+  <div class="post-filter" id="filter-bar">
+    <button class="filter-chip active" data-filter="ALL">All</button>
+    <button class="filter-chip" data-filter="RUN">Run</button>
+    <button class="filter-chip" data-filter="MOBILITY">Mobility</button>
+    <button class="filter-chip" data-filter="FUEL">Fuel</button>
+    <button class="filter-chip" data-filter="LIFE">Life</button>
+  </div>
+  <div class="post-grid" id="all-posts">
+    <div class="empty-state">Loading&hellip;</div>
+  </div>
+</section>
+
+<footer>
+  <span>&copy; 2026 The Fueled Project</span>
+  <span>Chicago, running toward it</span>
+</footer>
+
+<script src="posts.js"></script>
+<script>renderLog('all-posts', 'filter-bar');</script>
+</body>
+</html>

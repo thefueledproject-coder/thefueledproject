@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Fueled Project</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;600;700;800&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<section class="hero-fuel">
+  <div class="hero-fuel-photo-note">PHOTO: SWAP THIS SECTION'S BACKGROUND FOR A TRAINING PHOTO</div>
+
+  <div class="hero-fuel-top">
+    <div class="logo">THE FUELED<span>·</span>PROJECT</div>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="log.html">Log</a></li>
+      <li><a href="about.html">Coach</a></li>
+      <li><a href="contact.html">Connect</a></li>
+    </ul>
+    <div class="coach-card">
+      <div class="dot"></div>
+      <div>
+        <div class="label">Meet the Coach</div>
+        <div class="name">PN1 &middot; ISSA &middot; NASM &middot; UESCA</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-fuel-mid">
+    <div class="eyebrow">RUNNING &middot; MOBILITY &middot; NUTRITION</div>
+    <h1>An ongoing project in human performance.</h1>
+    <div class="hero-fuel-ctas">
+      <a href="log.html" class="btn btn-primary">Enter the Log</a>
+      <a href="contact.html" class="btn btn-secondary">Get Coaching Updates</a>
+    </div>
+  </div>
+
+  <div class="hero-fuel-bottom">
+    <div class="hero-tags">
+      <div class="idx">01</div>
+      <span class="tag-line">Training</span>
+      <span class="tag-line">Mobility</span>
+      <span class="tag-line">Fuel</span>
+    </div>
+    <img src="wordmark.svg" alt="FUELED" class="hero-wordmark">
+  </div>
+</section>
+
+<div class="gauge">
+  <div class="wrap gauge-inner">
+    <div class="gauge-item">NEXT RACE: <b>CHICAGO MARATHON</b></div>
+    <div class="gauge-item">CURRENT BLOCK: <b>WEEK 14 / 18</b></div>
+    <div class="gauge-item">CERTS: <b>PN1 &middot; ISSA ELITE &middot; NASM &middot; UESCA</b></div>
+    <div class="gauge-item">BEDTIME STORIES READ: <b>1,142</b></div>
+  </div>
+</div>
+
+<div class="wrap" style="margin-top:24px;">
+  <p style="max-width:56ch;font-size:15px;color:var(--ink-soft);">Training logged. Nothing polished. Nothing skipped. Coaching from a PN1, ISSA Elite, NASM, and UESCA certified coach who's also got a full-time job, a marathon on the calendar, and a three-year-old who doesn't care about either.</p>
+</div>
+
+<section class="pillars" id="pillars">
+  <div class="section-head">
+    <h2>Four things this<br>site is actually about</h2>
+    <p>No fluff categories. Just the stuff that gets trained, stretched, eaten, and lived through every week.</p>
+  </div>
+  <div class="pillar-grid">
+    <div class="pillar-card">
+      <span class="pillar-tag tag-run">RUN</span>
+      <h3>Training</h3>
+      <p>Marathon build logs, pacing, and the UESCA-informed thinking behind them &mdash; written in real time, not after the fact.</p>
+    </div>
+    <div class="pillar-card">
+      <span class="pillar-tag tag-mobility">MOBILITY</span>
+      <h3>Recovery</h3>
+      <p>The mobility work that actually fits into 10 quiet minutes, not the 45-minute routine you'll do exactly once.</p>
+    </div>
+    <div class="pillar-card">
+      <span class="pillar-tag tag-fuel">FUEL</span>
+      <h3>Nutrition</h3>
+      <p>Fueling for performance and real life &mdash; PN1-grounded, allergic to diet culture.</p>
+    </div>
+    <div class="pillar-card">
+      <span class="pillar-tag tag-life">LIFE</span>
+      <h3>Full Plate</h3>
+      <p>Training as a working parent. What actually gets cut, what doesn't, and why that's fine.</p>
+    </div>
+  </div>
+</section>
+
+<section class="posts">
+  <div class="section-head">
+    <h2>From the log</h2>
+    <a href="log.html" class="mono" style="font-size:13px;letter-spacing:0.06em;color:var(--ember-deep);">VIEW ALL &rarr;</a>
+  </div>
+  <div class="post-grid" id="latest-posts">
+    <div class="empty-state">Loading&hellip;</div>
+  </div>
+</section>
+
+<footer>
+  <span>&copy; 2026 The Fueled Project</span>
+  <span>Chicago, running toward it</span>
+</footer>
+
+<script src="posts.js"></script>
+<script>renderLatest('latest-posts', 3);</script>
+</body>
+</html>
