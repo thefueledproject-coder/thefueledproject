@@ -310,6 +310,41 @@ nav{
   font-family:'IBM Plex Mono', monospace;font-size:10.5px;color:#8B9382;
   margin-top:6px;display:block;
 }
+/* ---------- CALCULATOR ---------- */
+.calc-card{
+  border:1px solid var(--line);border-radius:var(--radius);padding:36px;
+  background:var(--paper);margin-bottom:28px;
+}
+.calc-card h3{font-size:22px;color:var(--forest-deep);margin-bottom:6px;text-transform:none;letter-spacing:0;}
+.calc-sub{font-size:14px;color:var(--ink-soft);margin-bottom:24px;}
+.calc-row{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:20px;align-items:flex-end;}
+.calc-field{display:flex;flex-direction:column;gap:6px;min-width:100px;flex:1;}
+.calc-field.small{max-width:80px;flex:none;}
+.calc-label{
+  font-family:'IBM Plex Mono', monospace;font-size:10.5px;letter-spacing:0.06em;
+  color:var(--moss);text-transform:uppercase;
+}
+.calc-input, .calc-select{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:11px 12px;font-family:'Public Sans', sans-serif;font-size:14px;color:var(--ink);
+}
+.calc-input:focus, .calc-select:focus{outline:2px solid var(--ember);outline-offset:1px;}
+.calc-sep{font-family:'IBM Plex Mono';color:var(--moss);align-self:center;padding-bottom:10px;}
+.calc-result-box{
+  background:var(--forest-deep);color:var(--paper);border-radius:var(--radius);
+  padding:22px 24px;margin-top:8px;
+}
+.calc-result-label{font-family:'IBM Plex Mono';font-size:10.5px;letter-spacing:0.06em;color:#A9B3A6;text-transform:uppercase;margin-bottom:6px;}
+.calc-result-value{font-family:'Big Shoulders Display';font-size:30px;color:var(--paper);text-transform:uppercase;}
+.calc-table{width:100%;border-collapse:collapse;margin-top:8px;}
+.calc-table th{
+  text-align:left;font-family:'IBM Plex Mono';font-size:10.5px;letter-spacing:0.06em;
+  color:var(--moss);text-transform:uppercase;padding:10px 8px;border-bottom:1px solid var(--line);
+}
+.calc-table td{padding:12px 8px;border-bottom:1px solid var(--line);font-size:15px;}
+.calc-table td.dist{font-family:'Big Shoulders Display';font-size:15px;letter-spacing:0.02em;color:var(--forest-deep);}
+.calc-table td.time{font-family:'IBM Plex Mono';color:var(--ink);}
+
 .gear-card{
   border:1px solid var(--line);border-radius:var(--radius);padding:36px;
   display:flex;justify-content:space-between;gap:32px;flex-wrap:wrap;align-items:flex-start;

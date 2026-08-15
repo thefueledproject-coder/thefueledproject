@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tools &mdash; The Fueled Project</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;600;700;800&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo"><img src="logo.png" alt="The Fueled Project" class="logo-img"></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="log.html">Log</a></li>
+    <li><a href="about.html">Coach</a></li>
+    <li><a href="gear.html">Gear</a></li>
+    <li><a href="tools.html" class="active">Tools</a></li>
+    <li><a href="contact.html">Connect</a></li>
+  </ul>
+</nav>
+
+<section class="page-hero" style="padding-bottom:40px;">
+  <div class="eyebrow">TOOLS</div>
+  <h1>Pace, mileage, race predictions</h1>
+  <p class="lead">No account, no email wall. Just the numbers.</p>
+</section>
+
+<section class="posts reveal" style="padding-top:20px;max-width:820px;">
+
+  <div class="calc-card">
+    <h3>Pace calculator</h3>
+    <p class="calc-sub">Enter a distance and a time to get your pace per mile and per kilometer.</p>
+
+    <div class="calc-row">
+      <div class="calc-field">
+        <span class="calc-label">Distance</span>
+        <input type="number" id="pc-distance" class="calc-input" value="5" min="0" step="0.01">
+      </div>
+      <div class="calc-field small">
+        <span class="calc-label">Unit</span>
+        <select id="pc-unit" class="calc-select">
+          <option value="mi">mi</option>
+          <option value="km">km</option>
+        </select>
+      </div>
+      <div class="calc-field small">
+        <span class="calc-label">Hours</span>
+        <input type="number" id="pc-h" class="calc-input" value="0" min="0">
+      </div>
+      <span class="calc-sep">:</span>
+      <div class="calc-field small">
+        <span class="calc-label">Min</span>
+        <input type="number" id="pc-m" class="calc-input" value="40" min="0" max="59">
+      </div>
+      <span class="calc-sep">:</span>
+      <div class="calc-field small">
+        <span class="calc-label">Sec</span>
+        <input type="number" id="pc-s" class="calc-input" value="0" min="0" max="59">
+      </div>
+    </div>
+
+    <div class="calc-result-box">
+      <div style="display:flex;gap:40px;flex-wrap:wrap;">
+        <div>
+          <div class="calc-result-label">Pace / mile</div>
+          <div class="calc-result-value" id="pc-out-mi">&mdash;</div>
+        </div>
+        <div>
+          <div class="calc-result-label">Pace / km</div>
+          <div class="calc-result-value" id="pc-out-km">&mdash;</div>
+        </div>
+        <div>
+          <div class="calc-result-label">Speed</div>
+          <div class="calc-result-value" id="pc-out-speed">&mdash;</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="calc-card">
+    <h3>Race time predictor</h3>
+    <p class="calc-sub">Based on a recent race result, using the Riegel formula &mdash; a standard endurance prediction model. Best used with a race from the last 4&ndash;8 weeks at similar fitness.</p>
+
+    <div class="calc-row">
+      <div class="calc-field">
+        <span class="calc-label">Recent distance</span>
+        <select id="rp-dist" class="calc-select">
+          <option value="5">5K</option>
+          <option value="10">10K</option>
+          <option value="21.0975" selected>Half Marathon</option>
+          <option value="42.195">Marathon</option>
+        </select>
+      </div>
+      <div class="calc-field small">
+        <span class="calc-label">Hours</span>
+        <input type="number" id="rp-h" class="calc-input" value="1" min="0">
+      </div>
+      <span class="calc-sep">:</span>
+      <div class="calc-field small">
+        <span class="calc-label">Min</span>
+        <input type="number" id="rp-m" class="calc-input" value="45" min="0" max="59">
+      </div>
+      <span class="calc-sep">:</span>
+      <div class="calc-field small">
+        <span class="calc-label">Sec</span>
+        <input type="number" id="rp-s" class="calc-input" value="0" min="0" max="59">
+      </div>
+    </div>
+
+    <table class="calc-table">
+      <thead>
+        <tr><th>Distance</th><th>Predicted time</th><th>Pace / mile</th></tr>
+      </thead>
+      <tbody id="rp-table"></tbody>
+    </table>
+  </div>
+
+</section>
+
+<footer>
+  <span>&copy; 2026 The Fueled Project</span>
+  <span>Chicago, running toward it</span>
+</footer>
+
+<script>
+  function fmtTime(totalSeconds){
+    totalSeconds = Math.round(totalSeconds);
+    var h = Math.floor(totalSeconds/3600);
+    var m = Math.floor((totalSeconds%3600)/60);
+    var s = totalSeconds%60;
+    var parts = [];
+    if(h>0) parts.push(h);
+    parts.push(h>0 ? String(m).padStart(2,'0') : m);
+    parts.push(String(s).padStart(2,'0'));
+    return parts.join(':');
+  }
+
+  function updatePaceCalc(){
+    var dist = parseFloat(document.getElementById('pc-distance').value) || 0;
+    var unit = document.getElementById('pc-unit').value;
+    var h = parseFloat(document.getElementById('pc-h').value) || 0;
+    var m = parseFloat(document.getElementById('pc-m').value) || 0;
+    var s = parseFloat(document.getElementById('pc-s').value) || 0;
+    var totalSec = h*3600 + m*60 + s;
+    if(dist <= 0 || totalSec <= 0){
+      document.getElementById('pc-out-mi').textContent = '\u2014';
+      document.getElementById('pc-out-km').textContent = '\u2014';
+      document.getElementById('pc-out-speed').textContent = '\u2014';
+      return;
+    }
+    var miles = unit === 'mi' ? dist : dist / 1.60934;
+    var km = unit === 'km' ? dist : dist * 1.60934;
+    var secPerMile = totalSec / miles;
+    var secPerKm = totalSec / km;
+    var mph = miles / (totalSec/3600);
+
+    document.getElementById('pc-out-mi').textContent = fmtTime(secPerMile) + '/mi';
+    document.getElementById('pc-out-km').textContent = fmtTime(secPerKm) + '/km';
+    document.getElementById('pc-out-speed').textContent = mph.toFixed(1) + ' mph';
+  }
+
+  function updateRacePredict(){
+    var d1 = parseFloat(document.getElementById('rp-dist').value);
+    var h = parseFloat(document.getElementById('rp-h').value) || 0;
+    var m = parseFloat(document.getElementById('rp-m').value) || 0;
+    var s = parseFloat(document.getElementById('rp-s').value) || 0;
+    var t1 = h*3600 + m*60 + s;
+    var targets = [
+      {name:'5K', km:5},
+      {name:'10K', km:10},
+      {name:'Half Marathon', km:21.0975},
+      {name:'Marathon', km:42.195}
+    ];
+    var rows = '';
+    if(t1 > 0 && d1 > 0){
+      targets.forEach(function(t){
+        var t2 = t1 * Math.pow(t.km/d1, 1.06);
+        var miles = t.km / 1.60934;
+        var pacePerMile = t2 / miles;
+        rows += '<tr><td class="dist">'+t.name+'</td><td class="time">'+fmtTime(t2)+'</td><td class="time">'+fmtTime(pacePerMile)+'/mi</td></tr>';
+      });
+    }
+    document.getElementById('rp-table').innerHTML = rows;
+  }
+
+  ['pc-distance','pc-unit','pc-h','pc-m','pc-s'].forEach(function(id){
+    document.getElementById(id).addEventListener('input', updatePaceCalc);
+    document.getElementById(id).addEventListener('change', updatePaceCalc);
+  });
+  ['rp-dist','rp-h','rp-m','rp-s'].forEach(function(id){
+    document.getElementById(id).addEventListener('input', updateRacePredict);
+    document.getElementById(id).addEventListener('change', updateRacePredict);
+  });
+
+  updatePaceCalc();
+  updateRacePredict();
+</script>
+<script src="reveal.js"></script>
+</body>
+</html>
