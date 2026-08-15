@@ -117,6 +117,57 @@
       <tbody id="rp-table"></tbody>
     </table>
   </div>
+  <div class="calc-card">
+    <h3>Fueling calculator</h3>
+    <p class="calc-sub">General carb, fluid, and sodium targets based on session duration and conditions. Ranges reflect standard endurance nutrition guidance &mdash; practice your numbers in training, not on race day, since individual sweat rate and tolerance vary.</p>
+
+    <div class="calc-row">
+      <div class="calc-field small">
+        <span class="calc-label">Hours</span>
+        <input type="number" id="fc-h" class="calc-input" value="2" min="0">
+      </div>
+      <span class="calc-sep">:</span>
+      <div class="calc-field small">
+        <span class="calc-label">Min</span>
+        <input type="number" id="fc-m" class="calc-input" value="0" min="0" max="59">
+      </div>
+      <div class="calc-field">
+        <span class="calc-label">Conditions</span>
+        <select id="fc-conditions" class="calc-select">
+          <option value="cool">Cool (under 60&deg;F)</option>
+          <option value="moderate" selected>Moderate (60&ndash;75&deg;F)</option>
+          <option value="hot">Hot / humid (75&deg;F+)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="calc-result-box">
+      <div style="display:flex;gap:40px;flex-wrap:wrap;margin-bottom:18px;">
+        <div>
+          <div class="calc-result-label">Carbs / hour</div>
+          <div class="calc-result-value" id="fc-out-carb-hr">&mdash;</div>
+        </div>
+        <div>
+          <div class="calc-result-label">Fluid / hour</div>
+          <div class="calc-result-value" id="fc-out-fluid-hr">&mdash;</div>
+        </div>
+        <div>
+          <div class="calc-result-label">Sodium / hour</div>
+          <div class="calc-result-value" id="fc-out-sodium-hr">&mdash;</div>
+        </div>
+      </div>
+      <div style="border-top:1px solid rgba(237,238,230,0.15);padding-top:16px;display:flex;gap:40px;flex-wrap:wrap;">
+        <div>
+          <div class="calc-result-label">Total for session</div>
+          <div style="font-size:14px;color:#D9DCCF;" id="fc-out-total">&mdash;</div>
+        </div>
+        <div>
+          <div class="calc-result-label">Roughly translates to</div>
+          <div style="font-size:14px;color:#D9DCCF;" id="fc-out-practical">&mdash;</div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </section>
 
@@ -195,8 +246,66 @@
     document.getElementById(id).addEventListener('change', updateRacePredict);
   });
 
+  function updateFuelCalc(){
+    var h = parseFloat(document.getElementById('fc-h').value) || 0;
+    var m = parseFloat(document.getElementById('fc-m').value) || 0;
+    var totalHours = h + (m/60);
+    var conditions = document.getElementById('fc-conditions').value;
+    var durationMin = totalHours * 60;
+
+    if(totalHours <= 0){
+      document.getElementById('fc-out-carb-hr').textContent = '\u2014';
+      document.getElementById('fc-out-fluid-hr').textContent = '\u2014';
+      document.getElementById('fc-out-sodium-hr').textContent = '\u2014';
+      document.getElementById('fc-out-total').textContent = '\u2014';
+      document.getElementById('fc-out-practical').textContent = '\u2014';
+      return;
+    }
+
+    var carbLow, carbHigh;
+    if(durationMin < 45){ carbLow = 0; carbHigh = 0; }
+    else if(durationMin <= 75){ carbLow = 0; carbHigh = 30; }
+    else if(durationMin <= 150){ carbLow = 30; carbHigh = 60; }
+    else { carbLow = 60; carbHigh = 90; }
+
+    var fluidRanges = {
+      cool:     {fLow: 400, fHigh: 550, sLow: 300, sHigh: 500},
+      moderate: {fLow: 500, fHigh: 700, sLow: 400, sHigh: 600},
+      hot:      {fLow: 650, fHigh: 900, sLow: 500, sHigh: 800}
+    };
+    var r = fluidRanges[conditions];
+
+    document.getElementById('fc-out-carb-hr').textContent = carbHigh===0 ? 'Not needed' : carbLow+'\u2013'+carbHigh+'g';
+    document.getElementById('fc-out-fluid-hr').textContent = r.fLow+'\u2013'+r.fHigh+'ml';
+    document.getElementById('fc-out-sodium-hr').textContent = r.sLow+'\u2013'+r.sHigh+'mg';
+
+    var totalCarbLow = Math.round(carbLow*totalHours);
+    var totalCarbHigh = Math.round(carbHigh*totalHours);
+    var totalFluidLow = Math.round(r.fLow*totalHours);
+    var totalFluidHigh = Math.round(r.fHigh*totalHours);
+    var totalSodiumLow = Math.round(r.sLow*totalHours);
+    var totalSodiumHigh = Math.round(r.sHigh*totalHours);
+
+    document.getElementById('fc-out-total').innerHTML =
+      totalCarbHigh+'g carbs &middot; '+totalFluidHigh+'ml fluid &middot; '+totalSodiumHigh+'mg sodium';
+
+    var avgCarb = (totalCarbLow+totalCarbHigh)/2;
+    var avgFluid = (totalFluidLow+totalFluidHigh)/2;
+    var gels = Math.round(avgCarb/25);
+    var bottles = (avgFluid/500).toFixed(1);
+    document.getElementById('fc-out-practical').textContent =
+      (gels>0 ? '~'+gels+' gel'+(gels===1?'':'s') : 'No gels needed') + ' &middot; ~'+bottles+' bottles (500ml)';
+  }
+
+  ['fc-h','fc-m','fc-conditions'].forEach(function(id){
+    document.getElementById(id).addEventListener('input', updateFuelCalc);
+    document.getElementById(id).addEventListener('change', updateFuelCalc);
+  });
+
   updatePaceCalc();
   updateRacePredict();
+  updateFuelCalc();
+
 </script>
 <script src="reveal.js"></script>
 </body>
