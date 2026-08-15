@@ -286,6 +286,33 @@ nav{
 .timeline-row p{font-size:14px;color:var(--ink-soft);}
 
 /* ---------- CONTACT / CTA ---------- */
+/* ---------- AFFILIATE / SPONSOR ---------- */
+.affiliate-banner{
+  background:linear-gradient(120deg, var(--forest-deep) 0%, #12140F 100%);
+  border-top:1px solid var(--ember-deep);border-bottom:1px solid var(--ember-deep);
+  padding:28px 32px;margin:0;
+}
+.affiliate-banner-inner{
+  max-width:1160px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;
+  gap:24px;flex-wrap:wrap;
+}
+.affiliate-copy .eyebrow{color:var(--ember);margin-bottom:8px;}
+.affiliate-copy .eyebrow::before{background:var(--ember);}
+.affiliate-copy p{color:var(--paper);font-size:15px;max-width:48ch;}
+.affiliate-disclosure{
+  font-family:'IBM Plex Mono', monospace;font-size:10.5px;color:#8B9382;
+  margin-top:6px;display:block;
+}
+.gear-card{
+  border:1px solid var(--line);border-radius:var(--radius);padding:36px;
+  display:flex;justify-content:space-between;gap:32px;flex-wrap:wrap;align-items:flex-start;
+  background:var(--paper);
+}
+.gear-card h3{font-size:24px;color:var(--forest-deep);margin-bottom:10px;text-transform:none;letter-spacing:0;}
+.gear-card p{font-size:14.5px;color:var(--ink-soft);max-width:52ch;margin-bottom:10px;}
+.gear-card ul{margin:14px 0 0;padding-left:18px;color:var(--ink-soft);font-size:14px;line-height:1.7;}
+.gear-cta{flex-shrink:0;}
+
 .cta{background:var(--forest-deep);color:var(--paper);padding:90px 32px;margin-top:20px;}
 .cta-inner{
   max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1.3fr 1fr;gap:48px;align-items:center;
