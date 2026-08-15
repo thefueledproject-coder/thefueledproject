@@ -42,7 +42,8 @@ nav{
   font-family:'Big Shoulders Display', sans-serif;
   font-weight:800;font-size:22px;letter-spacing:0.02em;text-transform:uppercase;
 }
-.logo span{color:var(--ember);}
+.logo{color:inherit;}
+.logo-img{height:20px;width:auto;display:block;}
 .nav-links{display:flex;gap:36px;list-style:none;}
 .nav-links a{
   font-size:13px;text-transform:uppercase;letter-spacing:0.08em;font-weight:600;
