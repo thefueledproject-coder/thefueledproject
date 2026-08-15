@@ -83,6 +83,12 @@ async function renderPost(targetId) {
   }
 
   document.title = post.title + " — The Fueled Project";
+  var descTag = document.querySelector('meta[name="description"]');
+  if (descTag) descTag.setAttribute('content', post.excerpt);
+  var ogDesc = document.querySelector('meta[property="og:description"]');
+  if (ogDesc) ogDesc.setAttribute('content', post.excerpt);
+  var ogTitle = document.querySelector('meta[property="og:title"]');
+  if (ogTitle) ogTitle.setAttribute('content', post.title + " — The Fueled Project");
 
   const dateStr = new Date(post.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
   const bodyHtml = (post.content || []).map(p => `<p style="margin-bottom:18px;">${p}</p>`).join('');
