@@ -44,6 +44,7 @@ nav{
   display:flex;align-items:center;justify-content:space-between;
   padding:26px 32px;
   max-width:1160px;margin:0 auto;
+  position:relative;
 }
 .logo{
   font-family:'Big Shoulders Display', sans-serif;
@@ -60,6 +61,23 @@ nav{
 .nav-links a:hover, .nav-links a.active{color:var(--ember-deep);}
 .nav-links a.active{border-bottom-color:var(--ember-deep);}
 .nav-links a:focus-visible{outline:2px solid var(--ember);outline-offset:4px;}
+
+/* ---------- MOBILE NAV TOGGLE ---------- */
+.nav-toggle{
+  display:none;
+  background:none;border:none;cursor:pointer;
+  width:32px;height:32px;padding:0;
+  position:relative;z-index:20;
+}
+.nav-toggle span{
+  display:block;position:absolute;left:4px;right:4px;height:2px;
+  background:currentColor;border-radius:2px;
+  transition:transform .25s ease, opacity .25s ease;
+}
+.nav-toggle span:nth-child(1){top:11px;}
+.nav-toggle span:nth-child(2){top:19px;}
+.nav-toggle.open span:nth-child(1){transform:translateY(4px) rotate(45deg);}
+.nav-toggle.open span:nth-child(2){transform:translateY(-4px) rotate(-45deg);}
 
 /* ---------- FULL-BLEED PHOTO HERO (home) ---------- */
 .hero-fuel{
@@ -383,8 +401,28 @@ footer{
   .about-photo{max-width:320px;}
   .post-grid{grid-template-columns:1fr;}
   .cta-inner{grid-template-columns:1fr;}
-  .nav-links{display:none;}
   .timeline-row{grid-template-columns:1fr;gap:6px;}
+
+  .nav-toggle{display:block;}
+  .nav-links{
+    display:flex;flex-direction:column;gap:0;
+    position:absolute;top:100%;left:0;right:0;
+    background:var(--paper);border-top:1px solid var(--line);
+    max-height:0;overflow:hidden;
+    transition:max-height .3s ease;
+    z-index:15;
+  }
+  .hero-fuel .nav-links, .page-hero-fuel .nav-links{
+    background:#1B1D16;border-top:1px solid rgba(237,238,230,0.15);
+  }
+  .nav-links.open{max-height:400px;}
+  .nav-links a{
+    padding:16px 32px;border-bottom:1px solid var(--line);
+    width:100%;box-sizing:border-box;
+  }
+  .hero-fuel .nav-links a, .page-hero-fuel .nav-links a{
+    border-bottom:1px solid rgba(237,238,230,0.1);
+  }
 }
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto;}
